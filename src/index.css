@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'ami1';
+  src: url('./assets/ami1.ttf');
+}
+
+@font-face {
+  font-family: 'ami2';
+  src: url('./assets/ami2.ttf');
+}
+
+@font-face {
+  font-family: 'ami3';
+  src: url('./assets/ami3.ttf');
+}
+
+@font-face {
+  font-family: 'toshiba';
+  src: url('./assets/toshiba.ttf')
+}
+
+
+
+body {
+  font-family: 'toshiba';
+  cursor: none;
+}
+
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.div {
+  height: 100vh;
+}
