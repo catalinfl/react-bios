@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Menu from './top/Menu'
 import UpperTitle from './top/UpperTitle'
+import ModifyContext from '../context/ismodifyingcontext'
 
 export enum Buttons {
   Main = "Main",
@@ -45,13 +46,23 @@ const Top = ({ buttonSelected, setButtonSelected }: TopProps) => {
         return buttonOrder[nextIndex]      
     }
   }
+  
+
+  const { isModifying } = useContext(ModifyContext)
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "ArrowRight") {
+      if (isModifying) {
+        return
+      }
       setButtonSelected(getNextButton(buttonSelected, "right"))
     } else if (event.key === "ArrowLeft") {
+      if (isModifying) {
+        return
+      }
       setButtonSelected(getNextButton(buttonSelected, "left"))
     } else if (event.key === "Tab") {
+
       console.log("tab")
     } else if (event.key === "F2") {
       console.log("F2")
@@ -65,7 +76,7 @@ const Top = ({ buttonSelected, setButtonSelected }: TopProps) => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [buttonSelected])
+  }, [buttonSelected, isModifying])
 
   
 
