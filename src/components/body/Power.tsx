@@ -11,8 +11,15 @@ type PowerKeyTypeMap = {
   power2: boolean;
 }
 
+type PowerVarriants = {
+  poweroption: string[],
+  power2: null
+}
 
-type PowerProps = ComponentPropsToBePassed<PowerOptions, PowerKeyTypeMap>
+
+type PowerProps = ComponentPropsToBePassed<PowerOptions, PowerKeyTypeMap, PowerVarriants>
+
+
 
 const Power = () => {
 
@@ -26,10 +33,15 @@ const Power = () => {
     power2: true
   }
 
+  const varriants: PowerVarriants = {
+    poweroption: ["Use Power", "Restart Power", "Test Power"],
+    power2: null
+  }
+
 
 
   return (
-    <LeftComponent <PowerProps> data={{ fields: f, values: v }} componentType='power' />
+    <LeftComponent <PowerProps> data={{ fields: f, values: v, varriants }} componentType='power' />
   )
 }
 
