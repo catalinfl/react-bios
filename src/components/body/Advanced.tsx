@@ -44,7 +44,7 @@ const Advanced = () => {
   }
 
   return (
-    <LeftComponent <AdvancedProps> data={{ fields: v, values: t, varriants: r }} componentType="advanced" />
+    <LeftComponent <AdvancedProps> data={{ fields: v, values: t, varriants: r }} />
   )
 }
 

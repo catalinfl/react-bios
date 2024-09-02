@@ -12,7 +12,7 @@ type PowerKeyTypeMap = {
 }
 
 type PowerVarriants = {
-  poweroption: string[],
+  poweroption: null,
   power2: null
 }
 
@@ -34,14 +34,14 @@ const Power = () => {
   }
 
   const varriants: PowerVarriants = {
-    poweroption: ["Use Power", "Restart Power", "Test Power"],
+    poweroption: null,
     power2: null
   }
 
 
 
   return (
-    <LeftComponent <PowerProps> data={{ fields: f, values: v, varriants }} componentType='power' />
+    <LeftComponent <PowerProps> data={{ fields: f, values: v, varriants }} />
   )
 }
 

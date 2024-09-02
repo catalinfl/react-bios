@@ -1,4 +1,3 @@
-import React from 'react'
 import { Buttons } from '../Top'
 import Main from './Main'
 import Advanced from './Advanced'

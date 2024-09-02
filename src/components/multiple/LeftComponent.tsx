@@ -2,16 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { ComponentPropsToBePassed, LeftComponentKeys } from "../body/Advanced";
 import ModifyContext from "../../context/ismodifyingcontext"
 
-type ComponentTypes = "advanced" | "power" | "boot" | "security" | "exit"
 
 
 export interface LeftComponentProps<T extends ComponentPropsToBePassed<any, any, any>> {
     data: T;
-    componentType: ComponentTypes;
 }
 
 
-const LeftComponent = <T extends ComponentPropsToBePassed<any, any, any>>({ data, componentType }: LeftComponentProps<T>) => {
+const LeftComponent = <T extends ComponentPropsToBePassed<any, any, any>>({ data }: LeftComponentProps<T>) => {
 
     const optionsToSelect = Object.values(data.fields) as string[]
     optionsToSelect.unshift("0")
@@ -34,7 +32,7 @@ const LeftComponent = <T extends ComponentPropsToBePassed<any, any, any>>({ data
             if (isModifying) {
                 if (Array.isArray(variants)) {
                     const currentIndex = variants.indexOf(dataValues[Object.keys(data.fields)[option - 1]])
-                    const nextIndex = (currentIndex + 1) % variants.length
+                    const nextIndex = (currentIndex - 1 + variants.length) % variants.length
                     handleChangeDataValues(option, variants[nextIndex])
                     return
                 } else if (typeof value === "boolean") {
@@ -56,7 +54,7 @@ const LeftComponent = <T extends ComponentPropsToBePassed<any, any, any>>({ data
             if (isModifying) {
                 if (Array.isArray(variants)) {
                     const currentIndex = variants.indexOf(dataValues[Object.keys(data.fields)[option - 1]])
-                    const nextIndex = (currentIndex - 1 + variants.length) % variants.length
+                    const nextIndex = (currentIndex + 1) % variants.length
                     handleChangeDataValues(option, variants[nextIndex])
                     return
                 }

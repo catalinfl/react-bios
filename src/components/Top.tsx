@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import Menu from './top/Menu'
 import UpperTitle from './top/UpperTitle'
 import ModifyContext from '../context/ismodifyingcontext'
@@ -61,14 +61,7 @@ const Top = ({ buttonSelected, setButtonSelected }: TopProps) => {
         return
       }
       setButtonSelected(getNextButton(buttonSelected, "left"))
-    } else if (event.key === "Tab") {
-
-      console.log("tab")
-    } else if (event.key === "F2") {
-      console.log("F2")
-    } else if (event.key === "F10") {
-      console.log("F10")
-    }
+    } 
   }
 
   useEffect(() => {

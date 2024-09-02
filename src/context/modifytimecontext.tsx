@@ -1,4 +1,4 @@
-import { createContext, Dispatch, useState } from "react";
+import { createContext, useState } from "react";
 
 export interface ModifyTimeContextType {
     modifiedTime: string | false,
